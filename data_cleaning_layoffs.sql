@@ -82,13 +82,13 @@ WHERE company = 'Amazon';
 CREATE TABLE layoffs_staging2 (
     company TEXT,
     location TEXT,
-    total_laid_off INT,
+    total_laid_off TEXT,
     `date` TEXT,
     percentage_laid_off TEXT,
     industry TEXT,
     source TEXT,
     stage TEXT,
-    funds_raised INT,
+    funds_raised INT DEFAULT NULL,
     country TEXT,
     date_added TEXT,
     row_num INT
@@ -115,6 +115,9 @@ ROW_NUMBER() OVER (
                  date_added
 ) AS row_num
 FROM layoffs_staging;
+
+ALTER TABLE layoffs_staging2
+MODIFY COLUMN total_laid_off INT;
 
 -- View duplicate rows
 SELECT *
