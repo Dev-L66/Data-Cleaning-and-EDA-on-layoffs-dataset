@@ -82,13 +82,13 @@ WHERE company = 'Amazon';
 CREATE TABLE layoffs_staging2 (
     company TEXT,
     location TEXT,
-    total_laid_off TEXT,
+    total_laid_off INT,
     `date` TEXT,
     percentage_laid_off TEXT,
     industry TEXT,
     source TEXT,
     stage TEXT,
-    funds_raised INT DEFAULT NULL,
+    funds_raised INT,
     country TEXT,
     date_added TEXT,
     row_num INT
